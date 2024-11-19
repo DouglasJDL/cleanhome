@@ -1,0 +1,547 @@
+:root {
+    --navbar-height: 40px; /* Cambia este valor según la altura de tu menú */
+}
+
+
+
+/* Colores personalizados */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f9f9f9; /* Fondo claro para sensación de limpieza */
+    color: #333333;
+    line-height: 1.8;
+}
+
+/* Barra de navegación mejorada */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Distribuye los elementos a los extremos */
+    padding: 10px 30px;
+    background: rgba(255, 255, 255, 0.9); /* Transparente con blur */
+    backdrop-filter: blur(10px);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    font-size: 1.8rem;
+    color: #0077b6;
+}
+
+.navbar-nav {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Espaciado entre enlaces */
+}
+
+.navbar-nav .nav-link {
+    font-weight: 500;
+    color: #333333;
+    transition: color 0.3s;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #00b4d8;
+}
+
+/* Contenedor de búsqueda, íconos y botón */
+.navbar-icons {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Espaciado entre elementos */
+}
+
+/* Barra de búsqueda */
+.navbar-icons .search-bar {
+    position: relative;
+    width: 200px; /* Tamaño reducido */
+}
+
+.navbar-icons .search-bar input {
+    width: 100%;
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: border-color 0.3s;
+}
+
+.navbar-icons .search-bar input:focus {
+    border-color: #00b4d8;
+    outline: none;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        display: flex;
+        flex-direction: column; /* Elementos en columna */
+        align-items: center; /* Centrar horizontalmente */
+    }
+
+    .navbar .btn-outline-primary {
+        order: -2; /* Asegura que el botón aparezca primero */
+        width: 90%; /* Ajusta el ancho del botón */
+        margin: 10px auto; /* Espaciado alrededor */
+        padding: 10px; /* Tamaño del botón */
+        font-size: 1rem; /* Tamaño de texto */
+    }
+
+    #searchForm {
+        display: none !important; /* Asegura que no sea sobrescrito */
+    }
+
+    .dropdown-menu dropdown-menu-end {
+        display: none !important; /* Asegura que no sea sobrescrito */
+    }
+
+    .dropdown-menu-end {
+        display: none !important; /* Asegura que no sea sobrescrito */
+    }
+
+    .navbar-icons {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        flex-wrap: nowrap;
+        width: 100%; /* Ancho completo */
+        order: 0; /* Íconos después de la barra */
+    }
+}
+
+
+
+/* Íconos de navegación */
+.navbar-icons .nav-icon {
+    font-size: 1.2rem;
+    color: #0077b6;
+    transition: color 0.3s, transform 0.3s;
+    cursor: pointer;
+}
+
+
+.navbar-icons {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Mantén el espacio entre iconos */
+    margin-right: 20px; /* Separa todo el grupo de iconos del botón */
+}
+
+
+.navbar-icons .nav-icon:hover {
+    color: #00b4d8;
+    transform: scale(1.1);
+}
+
+/* Botón "Cotizar" */
+.navbar-icons .btn-cotizar {
+    background-color: #0077b6;
+    color: #ffffff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.navbar-icons .btn-cotizar:hover {
+    background-color: #005f9e;
+    transform: scale(1.05);
+}
+
+
+/* Puntos de notificación */
+.notification-dot {
+    position: absolute;
+    top: 0;
+    right: -3px;
+    width: 10px;
+    height: 10px;
+    background-color: #ff4d4d;
+    border-radius: 50%;
+}
+
+/* Banner */
+.banner-carousel {
+    width: 90%;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 15px;
+    padding-top: var(--navbar-height);
+}
+
+
+.banner-carousel .swiper-slide img {
+    width: 100%;
+    height: 350px; /* Altura adaptada */
+    object-fit: cover;
+    border-radius: 12px; /* Bordes suaves */
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+.banner-carousel .swiper-pagination {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Sección de productos */
+.productos {
+    margin-top: 60px;
+    padding: 20px;
+}
+.productos .card {
+    border: none;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.productos .card img {
+    object-fit: cover;
+    height: 200px;
+    width: 100%;
+}
+.productos .card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+}
+.productos .card-title {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #333333;
+}
+.productos .card-text {
+    font-size: 0.9rem;
+    color: #555555;
+}
+.productos .btn-outline-dark {
+    border-color: #0077b6;
+    color: #0077b6;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+.productos .btn-outline-dark:hover {
+    background-color: #0077b6;
+    color: #ffffff;
+}
+
+
+/* Estilos Generales de Secciones */
+
+.card, .servicio-item, .testimonio-item {
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.card, .servicio-item, .testimonio-item {
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.card, .servicio-item, .testimonio-item {
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+h2 {
+    font-weight: 700;
+    font-size: 2.5rem;
+    color: #0077b6;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+
+.btn, .card:hover, .servicio-item:hover, .testimonio-item:hover {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    transform: scale(1.05); /* Escala el elemento ligeramente */
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+}
+
+.twentytwenty-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 12px; /* Bordes redondeados */
+    overflow: hidden;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    transition: transform 0.3s ease-in-out; /* Animación al pasar el cursor */
+}
+
+.twentytwenty-container img:hover {
+    transform: scale(1.02); /* Efecto de ligera ampliación al hover */
+}
+.twentytwenty-container {
+    border-radius: 12px; /* Redondea el contenedor */
+    overflow: hidden; /* Recorta la sombra cuadrada para que respete los bordes */
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.15); /* Agrega una sombra suave redondeada */
+    display: flex; /* Asegura alineación de contenido interno */
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: center; /* Centra el contenido verticalmente */
+    position: relative; /* Necesario para el handle */
+    width: 50%; /* Ancho deseado */
+    height: auto; /* Ajusta altura automáticamente */
+    margin: 0 auto; /* Centra horizontalmente dentro del contenedor padre */
+}
+
+
+.twentytwenty-handle {
+    background-color: #0077b6; /* Color del handle */
+    display: flex;
+    justify-content: center;
+}
+
+
+
+
+.twentytwenty-handle:before, 
+.twentytwenty-handle:after {
+    color: white; /* Cambia el color de las flechas dentro del círculo */
+}
+
+
+
+/* Sección de servicios */
+.servicios {
+    background-color: #ffffff;
+    padding: 60px 0;
+    text-align: center;
+}
+.servicios .icono-servicio {
+    font-size: 2.5rem;
+    color: #00b4d8;
+    margin-bottom: 20px;
+}
+.servicios .servicio-item {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.servicios .servicio-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Beneficios */
+.beneficios {
+    background-color: #f8f9fa;
+    padding: 60px 0;
+}
+.beneficios .beneficio-item {
+    text-align: center;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.beneficios .beneficio-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Testimonios */
+.testimonios {
+    background-color: #ffffff;
+    padding: 60px 0;
+    text-align: center;
+}
+.testimonios .testimonio-item {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+.testimonios .testimonio-item img {
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+.testimonios .testimonio-item p {
+    font-style: italic;
+    color: #555555;
+}
+
+/* Formulario de contacto */
+.formulario-contacto {
+    background-color: #0077b6;
+    color: #ffffff;
+    padding: 60px 0;
+    text-align: center;
+}
+.formulario-contacto input,
+.formulario-contacto textarea {
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #e9ecef;
+    padding: 10px;
+    width: 90%;
+    max-width: 500px;
+}
+.formulario-contacto input:focus,
+.formulario-contacto textarea:focus {
+    border-color: #00b4d8;
+    box-shadow: 0px 0px 8px rgba(0, 180, 216, 0.5);
+}
+
+/* WhatsApp */
+.whatsapp-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.whatsapp-float {
+    background-color: #25d366;
+    color: white;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    font-size: 28px;
+    transition: transform 0.3s;
+    text-decoration: none;  /* Esto elimina la línea del enlace */
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+}
+
+.whatsapp-help-text {
+    font-size: 16px;
+    color: rgb(95, 95, 95);
+    margin: 0;
+}
+
+
+/* Footer */
+/* Estilo de los íconos de redes sociales */
+footer .social-icon {
+    color: #0077b6; /* Azul suave para los íconos */
+    margin: 0 15px;
+    font-size: 1.5rem; /* Tamaño grande para mejor visibilidad */
+    transition: color 0.3s, transform 0.3s; /* Efectos suaves al pasar el mouse */
+}
+
+footer .social-icon:hover {
+    color: #00b4d8; /* Azul más brillante al pasar el mouse */
+    transform: scale(1.2); /* Efecto de agrandar al pasar el mouse */
+}
+
+footer .social-icon:active {
+    transform: scale(1); /* Efecto al hacer click */
+}
+
+
+/*Tienda*/
+
+  /* Estilo para mostrar el botón "Comprar ahora" solo al hacer hover sobre la tarjeta del producto */
+  .product-card {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s;
+}
+
+.product-card:hover {
+    transform: scale(1.05);
+}
+
+.product-card .card-body a.btn {
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.product-card:hover .card-body a.btn {
+    opacity: 1;
+}
+/* Estilo general del rango de precios */
+#priceRange {
+    width: 100%;
+}
+
+/* Estilo general del input tipo range */
+input[type="range"] {
+    appearance: none; /* Propiedad estándar para todos los navegadores */
+    width: 100%;
+    height: 8px;
+    background: #ddd; /* Línea base gris */
+    border-radius: 5px;
+    outline: none;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+/* Línea base (gris) */
+input[type="range"]::-webkit-slider-runnable-track {
+    height: 8px;
+    background: #ddd; /* Gris */
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+input[type="range"]::-moz-range-track {
+    height: 8px;
+    background: #ddd; /* Gris */
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+/* Línea azul detrás del thumb (dinámica) */
+input[type="range"]::before {
+    content: '';
+    position: absolute;
+    height: 8px;
+    background: #007bff; /* Azul */
+    border-radius: 5px;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 0; /* Se actualizará dinámicamente con JS */
+}
+
+/* Puntero (thumb) del rango */
+input[type="range"]::-webkit-slider-thumb,
+input[type="range"]::-moz-range-thumb {
+    appearance: none;
+    width: 16px; /* Tamaño del thumb */
+    height: 16px;
+    background: #007bff; /* Color del thumb */
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+    position: relative;
+}
+
+/* MS Edge y navegadores basados en MS */
+input[type="range"]::-ms-track {
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+}
+
+input[type="range"]::-ms-thumb {
+    width: 16px;
+    height: 16px;
+    background: #007bff; /* Azul */
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+
+/*Cotizador*/
+

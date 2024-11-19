@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Clean Home - Tu Espacio Impecable</title>
+    <!-- Icono de la página -->
+    <link rel="icon" href="favicon.ico">
+    <!-- CSS -->
+    <link href="vendor/bootstrap.min.css" rel="stylesheet">
+    <link href="vendor/swiper-bundle.min.css" rel="stylesheet">
+    <link href="vendor/twentytwenty.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+    <!-- Fuentes e Iconos -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+
+</head>
+<body>
+<!-- Barra de Navegación -->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">
+            <img src="logo.svg" alt="Clean Home Logo" height="40">
+            Clean Home
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html#servicios">Servicios</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html#blog">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="tienda.html">Tienda</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html#contacto">Contacto</a>
+                </li>
+            </ul>
+            <div class="navbar-icons ms-3">
+                <!-- Formulario de Búsqueda -->
+                <form id="searchForm" class="d-flex me-3 position-relative" action="tienda.html" method="get">
+    <input class="form-control me-2" type="search" placeholder="Buscar..." aria-label="Buscar">
+    <button type="submit" class="btn btn-primary position-absolute end-0 top-0 me-2" style="height: 100%; border-radius: 0;">
+        <i class="fas fa-search"></i> <!-- Ícono de lupa -->
+    </button>
+</form>
+
+                <div class="dropdown">
+                    <a href="#" class="nav-icon position-relative" id="userMenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-user"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userMenu">
+                        <li><a class="dropdown-item" href="#"><i class="fas fa-user-circle me-2"></i>Mi Perfil</a></li>
+                        <li><a class="dropdown-item" href="#"><i class="fas fa-shopping-bag me-2"></i>Mis Compras</a></li>
+                        <li><a class="dropdown-item" href="#"><i class="fas fa-shipping-fast me-2"></i>Rastrear mi pedido</a></li>
+                        <li><a class="dropdown-item" href="#"><i class="fas fa-heart me-2"></i>Lista de Deseos</a></li>
+                        <li><a class="dropdown-item" href="#"><i class="fas fa-shopping-cart me-2"></i>Carrito de Compras</a></li>
+                        <li><a class="dropdown-item" href="#"><i class="fas fa-cog me-2"></i>Configuración</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt me-2"></i>Cerrar Sesión</a></li>
+                        
+                    </ul>
+                </div>
+                <div class="dropdown">
+                    <a href="#" class="nav-icon position-relative" id="notificationMenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-dot"></span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="notificationMenu">
+                        <li class="dropdown-item d-flex align-items-center">
+                            <i class="fas fa-box-open me-3 text-primary"></i>
+                            <div>
+                                <h6 class="mb-0">Tu pedido ha sido enviado</h6>
+                                <small class="text-muted">Hace 2 horas</small>
+                            </div>
+                        </li>
+                        <li class="dropdown-item d-flex align-items-center">
+                            <i class="fas fa-tag me-3 text-success"></i>
+                            <div>
+                                <h6 class="mb-0">Nueva oferta disponible</h6>
+                                <small class="text-muted">Hace 5 horas</small>
+                            </div>
+                        </li>
+                        <li class="dropdown-item d-flex align-items-center">
+                            <i class="fas fa-heart me-3 text-danger"></i>
+                            <div>
+                                <h6 class="mb-0">Lista de deseos está en oferta</h6>
+                                <small class="text-muted">Hace 1 día</small>
+                            </div>
+                        </li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li class="text-center"><a href="#" class="btn btn-sm btn-primary mt-2">Ver Todas las Notificaciones</a></li>
+                    </ul>
+                </div>
+                <div class="dropdown">
+                    <a href="#" class="nav-icon position-relative" id="cartMenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="notification-dot"></span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="cartMenu">
+                        <li class="dropdown-item d-flex align-items-center">
+                            <img src="img/producto1.jpg" alt="Producto Multiuso" class="me-3" style="width: 50px; height: 50px; object-fit: cover;">
+                            <div>
+                                <h6 class="mb-0">Producto Multiuso</h6>
+                                <small class="text-muted">Q20.00</small>
+                            </div>
+                        </li>
+                        <li class="dropdown-item d-flex align-items-center">
+                            <img src="img/producto2.jpg" alt="Limpiador de Superficies" class="me-3" style="width: 50px; height: 50px; object-fit: cover;">
+                            <div>
+                                <h6 class="mb-0">Limpiador de Superficies</h6>
+                                <small class="text-muted">Q15.00</small>
+                            </div>
+                        </li>
+                        <li class="dropdown-item d-flex align-items-center">
+                            <img src="img/servicio1.jpg" alt="Limpieza Residencial" class="me-3" style="width: 50px; height: 50px; object-fit: cover;">
+                            <div>
+                                <h6 class="mb-0">Limpieza Residencial</h6>
+                                <small class="text-muted">Q350 - Cotización personalizada</small>
+                            </div>
+                        </li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li class="text-center"><a href="#" class="btn btn-sm btn-primary mt-2">Estoy listo para cotinuar</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Botón Cotizar separado del grupo de íconos -->
+            <div>
+                <a href="cotizador.html" class="btn btn-outline-primary">Cotizador</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+
+<!-- Icono de WhatsApp Flotante -->
+<div class="whatsapp-container">
+    <div class="whatsapp-help-text" id="whatsappHelpText">¿Necesitas ayuda?</div>
+    <a href="https://wa.me/1234567890?text=Hola,%20me%20gustaría%20obtener%20información%20sobre%20sus%20servicios" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+</div>
+
+<!-- Banner con Carrusel de Imágenes -->
+<section class="banner-carousel mt-5">
+    <div class="container-fluid p-0">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="img/oferta_eco.jpg" class="img-fluid" alt="Promoción 1">
+                    <div class="carousel-caption">
+                        <h3>Oferta Especial de Temporada</h3>
+                        <p>20% de descuento en servicios residenciales</p>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <img src="img/equipos_limpieza.jpg" class="img-fluid" alt="Promoción 2">
+                    <div class="carousel-caption">
+                        <h3>Limpieza Comercial</h3>
+                        <p>Paquetes mensuales con descuento</p>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <img src="img/promocion3.jpg" class="img-fluid" alt="Promoción 3">
+                    <div class="carousel-caption">
+                        <h3>¡Unete a nuestro Equipo!</h3>
+                        <p>Forma parte de nuestra equipo profesional</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Controles de navegación -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+</section>
+<!-- Separador Suave entre Secciones -->
+<hr class="separador-personalizado">
+
+<!-- Sección de Filtros y Productos -->
+<section class="productos mt-5">
+    <div class="container">
+        <div class="row">
+            <aside class="col-lg-3 mb-4">
+                <h5>Filtrar por:</h5>
+                <form id="filtersForm">
+                    <!-- Filtro por Rango de Precio -->
+                    <div class="mb-3">
+                        <label for="priceRange" class="form-label">Precio</label>
+                        <input type="range" class="form-range" min="0" max="500" step="10" id="priceRange">
+                        <p id="priceRangeValue" class="text-muted">Hasta Q500</p>
+                    </div>
+            
+                    <!-- Filtro por Tipo de Producto -->
+                    <div class="mb-3">
+                        <label class="form-label">Tipo de Producto</label>
+                        <select class="form-select">
+                            <option value="">Todos</option>
+                            <option value="ecologico">Productos Ecológicos</option>
+                            <option value="profundo">Limpieza Profunda</option>
+                            <option value="mantenimiento">Equipos de Mantenimiento</option>
+                            <option value="consumibles">Insumos y Consumibles</option>
+                            <option value="post-obra">Kits Post-Obra</option>
+                        </select>
+                    </div>
+            
+                    <!-- Filtro por Tipo de Servicio -->
+                    <div class="mb-3">
+                        <label class="form-label">Tipo de Servicio</label>
+                        <select class="form-select">
+                            <option value="">Todos</option>
+                            <option value="residencial">Limpieza Residencial</option>
+                            <option value="comercial">Limpieza Comercial</option>
+                            <option value="post-obra">Limpieza Post-Obra</option>
+                            <option value="eventos">Limpieza de Eventos</option>
+                        </select>
+                    </div>
+            
+                    <!-- Filtro por Productos Ecológicos -->
+                    <div class="mb-3">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="productosEcologicos">
+                            <label class="form-check-label" for="productosEcologicos">
+                                Solo Productos Ecológicos
+                            </label>
+                        </div>
+                    </div>
+            
+                    <!-- Filtro por Frecuencia de Uso -->
+                    <div class="mb-3">
+                        <label class="form-label">Frecuencia de Uso</label>
+                        <select class="form-select">
+                            <option value="">Todas</option>
+                            <option value="diario">Uso Diario</option>
+                            <option value="semanal">Uso Semanal</option>
+                            <option value="profundo">Limpieza Profunda</option>
+                        </select>
+                    </div>
+            
+            
+
+                    <!-- Filtro por Calificación del Producto -->
+                    <div class="mb-3">
+                        <label class="form-label">Calificación del Producto</label>
+                        <select class="form-select">
+                            <option value="">Todas</option>
+                            <option value="4">4 estrellas o más</option>
+                            <option value="3">3 estrellas o más</option>
+                            <option value="2">2 estrellas o más</option>
+                        </select>
+                    </div>
+            
+                    <!-- Filtro por Ofertas o Paquetes Disponibles -->
+                    <div class="mb-3">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="productosOfertas">
+                            <label class="form-check-label" for="productosOfertas">
+                                Ver solo Ofertas y Paquetes
+                            </label>
+                        </div>
+                    </div>
+            
+                    <!-- Botón para Aplicar los Filtros -->
+                    <button type="submit" class="btn btn-primary">Aplicar Filtros</button>
+                </form>
+            </aside>
+            
+            
+            <!-- Vista de Productos -->
+            <div class="col-lg-9">
+
+                      <!-- Barra de Búsqueda -->
+                      <div class="mb-4">
+                        <form id="searchForm2" class="d-flex" action="tienda.html" method="get">
+                            <input class="form-control me-2" type="" placeholder="Buscar productos..." aria-label="Buscar">
+                            <button class="btn btn-outline-primary" type="submit">Buscar</button>
+                        </form>
+                    </div>
+
+                <!-- Productos en Formato de Tarjetas -->
+                <div class="row" id="productContainer">
+                    <div class="col-md-4 mb-4 product-card-template">
+                        <div class="card shadow-sm product-card position-relative">
+                            <span class="badge bg-success position-absolute top-0 end-0 m-2">Oferta</span>
+                            <a href="#">
+                                <img src="img/producto1.jpg" class="card-img-top" alt="Producto 1">
+                            </a>
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Producto para Uso Multiple</h5>
+                                <p class="card-text">Q20.00</p>
+                                <p class="card-text"></p>
+                                <div class="rating mb-2">
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star-half-alt text-warning"></i>
+                                    <span>(45 reseñas)</span>
+                                </div>
+                                <a href="#" class="btn btn-primary ms-2">Comprar ahora</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4 product-card-template">
+                        <div class="card shadow-sm product-card position-relative">
+                            <span class="badge bg-warning text-dark position-absolute top-0 end-0 m-2">Nuevo</span>
+                            <a href="#">
+                                <img src="img/producto2.jpg" class="card-img-top" alt="Producto 2">
+                            </a>
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Limpiador de Superficies</h5>
+                                <p class="card-text">Q15.00</p>
+                                <p class="card-text"></p>
+                                <div class="rating mb-2">
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="far fa-star text-warning"></i>
+                                    <span>(30 reseñas)</span>
+                                </div>
+                                <a href="#" class="btn btn-primary ms-2">Comprar ahora</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4 product-card-template">
+                        <div class="card shadow-sm product-card position-relative">
+                            <span class="badge bg-danger position-absolute top-0 end-0 m-2">Descuento</span>
+                            <a href="#">
+                                <img src="img/producto3.jpg" class="card-img-top" alt="Producto 3">
+                            </a>
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Desinfectante Antibacterial</h5>
+                                <p class="card-text"><span class="text-muted"><s>Q25.00</s></span> Q20.00</p>
+                                <p class="card-text"></p>
+                                <div class="rating mb-2">
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <span>(60 reseñas)</span>
+                                </div>
+                                <a href="#" class="btn btn-primary ms-2">Comprar ahora</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Paginación de Productos -->
+                <nav aria-label="Page navigation" class="mt-4">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Anterior</a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">Siguiente</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Separador Suave entre Secciones -->
+<hr class="separador-personalizado">
+
+<!-- Footer -->
+<footer class="bg-light text-dark text-center py-4 mt-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                <h5>Sobre Nosotros</h5>
+                <p>Clean Home es su aliado para mantener espacios impecables y limpios con los mejores productos y servicios.</p>
+            </div>
+            <div class="col-md-4 mb-3">
+                <h5>Información de Contacto</h5>
+                <p>Email: contacto@cleanhome.com</p>
+                <p>Teléfono: +502 1234 5678</p>
+            </div>
+            <div class="col-md-4 mb-3">
+                <h5>Síguenos en</h5>
+                <a href="#" class="social-icon"><i class="fab fa-facebook fa-lg"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-instagram fa-lg"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-twitter fa-lg"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-linkedin fa-lg"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-youtube fa-lg"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-whatsapp fa-lg"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-pinterest fa-lg"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-snapchat fa-lg"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-tiktok fa-lg"></i></a>
+            </div>
+        </div>
+        <p class="mt-3">&copy; 2024 Clean Home - Todos los derechos reservados.</p>
+        <p class="mt-1"><a href="terminos.html">Términos y Condiciones</a> | <a href="privacidad.html">Política de Privacidad</a></p>
+    </div>
+</footer>
+
+<!-- JS -->
+<script src="vendor/bootstrap.bundle.min.js"></script>
+<script src="vendor/swiper-bundle.min.js"></script>
+<script src="vendor/jquery.min.js"></script>
+<script src="js/scripts.js"></script>
+<!-- TwentyTwenty JS para comparación de imágenes -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mhayes-twentytwenty/1.0.0/js/jquery.event.move.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mhayes-twentytwenty/1.0.0/js/jquery.twentytwenty.min.js"></script>
+
+</body>
+</html>

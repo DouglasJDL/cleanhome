@@ -1,0 +1,679 @@
+
+    <style>
+       body {
+           font-family: 'Roboto', sans-serif;
+           background-color: #f9f9f9;
+           color: #333;
+       }
+       
+       .navbar {
+           box-shadow: 0px 4px 2px -2px rgba(0,0,0,0.1);
+       }
+       
+       .navbar-light .navbar-nav .nav-link {
+           transition: color 0.3s ease;
+       }
+       
+       .navbar-light .navbar-nav .nav-link:hover {
+           color: #2e7d32;
+       }
+       
+       .progress-container {
+           width: 100%;
+           background-color: #f3f3f3;
+           margin-top: 20px;
+           position: relative;
+           z-index: 1000;
+           height: 25px;
+           border-radius: 15px;
+           overflow: hidden;
+       }
+       
+       .progress-bar {
+           width: 0%;
+           height: 25px;
+           background: linear-gradient(90deg, #2e7d32, #3e8e41);
+           transition: width 0.4s ease;
+       }
+       
+       .step-indicator {
+           position: absolute;
+           top: -40px;
+           width: 100%;
+           display: flex;
+           justify-content: space-between;
+           padding: 0 10px;
+       }
+       
+       .step {
+           width: 40px;
+           height: 40px;
+           background-color: #ddd;
+           border-radius: 50%;
+           display: flex;
+           align-items: center;
+           justify-content: center;
+           font-weight: bold;
+           color: #fff;
+           font-size: 1.2em;
+           transition: background-color 0.4s ease;
+       }
+       
+       .step.active {
+           background-color: #2e7d32;
+       }
+       
+       .servicio-card {
+           border-radius: 15px;
+           box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+           transition: transform 0.3s ease;
+       }
+       
+       .servicio-card:hover {
+           transform: scale(1.05);
+       }
+       
+       .servicio-card img {
+           border-top-left-radius: 15px;
+           border-top-right-radius: 15px;
+           width: 100%;
+           height: 200px;
+           object-fit: cover;
+       }
+       
+      
+       
+       .form-control, .form-select {
+           background-color: #f9f9f9;
+           border-radius: 10px;
+           padding: 15px;
+       }
+       
+       .form-check-input:checked {
+           background-color: #2e7d32;
+           border-color: #2e7d32;
+       }
+       
+       .reserva-form-icon {
+           margin-right: 10px;
+           color: #2e7d32;
+       }
+       
+       .alert-success {
+           border-radius: 15px;
+       }
+    </style>
+
+    <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Clean Home - Tu Espacio Impecable</title>
+    <!-- Icono de la página -->
+    <link rel="icon" href="favicon.ico">
+    <!-- CSS -->
+    <link href="vendor/bootstrap.min.css" rel="stylesheet">
+    <link href="vendor/swiper-bundle.min.css" rel="stylesheet">
+    <link href="vendor/twentytwenty.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+    <!-- Fuentes e Iconos -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+
+</head>
+<body>
+<!-- Barra de Navegación -->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">
+            <img src="logo.svg" alt="Clean Home Logo" height="40">
+            Clean Home
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html#servicios">Servicios</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html#blog">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="tienda.html">Tienda</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html#contacto">Contacto</a>
+                </li>
+            </ul>
+            <div class="navbar-icons ms-3">
+                <!-- Formulario de Búsqueda -->
+                <form id="searchForm" class="d-flex me-3 position-relative" action="tienda.html" method="get">
+    <input class="form-control me-2" type="search" placeholder="Buscar..." aria-label="Buscar">
+    <button type="submit" class="btn btn-primary position-absolute end-0 top-0 me-2" style="height: 100%; border-radius: 0;">
+        <i class="fas fa-search"></i> <!-- Ícono de lupa -->
+    </button>
+</form>
+
+                <div class="dropdown">
+                    <a href="#" class="nav-icon position-relative" id="userMenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-user"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userMenu">
+                        <li><a class="dropdown-item" href="#"><i class="fas fa-user-circle me-2"></i>Mi Perfil</a></li>
+                        <li><a class="dropdown-item" href="#"><i class="fas fa-shopping-bag me-2"></i>Mis Compras</a></li>
+                        <li><a class="dropdown-item" href="#"><i class="fas fa-shipping-fast me-2"></i>Rastrear mi pedido</a></li>
+                        <li><a class="dropdown-item" href="#"><i class="fas fa-heart me-2"></i>Lista de Deseos</a></li>
+                        <li><a class="dropdown-item" href="#"><i class="fas fa-shopping-cart me-2"></i>Carrito de Compras</a></li>
+                        <li><a class="dropdown-item" href="#"><i class="fas fa-cog me-2"></i>Configuración</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt me-2"></i>Cerrar Sesión</a></li>
+                        
+                    </ul>
+                </div>
+                <div class="dropdown">
+                    <a href="#" class="nav-icon position-relative" id="notificationMenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-dot"></span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="notificationMenu">
+                        <li class="dropdown-item d-flex align-items-center">
+                            <i class="fas fa-box-open me-3 text-primary"></i>
+                            <div>
+                                <h6 class="mb-0">Tu pedido ha sido enviado</h6>
+                                <small class="text-muted">Hace 2 horas</small>
+                            </div>
+                        </li>
+                        <li class="dropdown-item d-flex align-items-center">
+                            <i class="fas fa-tag me-3 text-success"></i>
+                            <div>
+                                <h6 class="mb-0">Nueva oferta disponible</h6>
+                                <small class="text-muted">Hace 5 horas</small>
+                            </div>
+                        </li>
+                        <li class="dropdown-item d-flex align-items-center">
+                            <i class="fas fa-heart me-3 text-danger"></i>
+                            <div>
+                                <h6 class="mb-0">Lista de deseos está en oferta</h6>
+                                <small class="text-muted">Hace 1 día</small>
+                            </div>
+                        </li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li class="text-center"><a href="#" class="btn btn-sm btn-primary mt-2">Ver Todas las Notificaciones</a></li>
+                    </ul>
+                </div>
+                <div class="dropdown">
+                    <a href="#" class="nav-icon position-relative" id="cartMenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="notification-dot"></span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="cartMenu">
+                        <li class="dropdown-item d-flex align-items-center">
+                            <img src="img/producto1.jpg" alt="Producto Multiuso" class="me-3" style="width: 50px; height: 50px; object-fit: cover;">
+                            <div>
+                                <h6 class="mb-0">Producto Multiuso</h6>
+                                <small class="text-muted">Q20.00</small>
+                            </div>
+                        </li>
+                        <li class="dropdown-item d-flex align-items-center">
+                            <img src="img/producto2.jpg" alt="Limpiador de Superficies" class="me-3" style="width: 50px; height: 50px; object-fit: cover;">
+                            <div>
+                                <h6 class="mb-0">Limpiador de Superficies</h6>
+                                <small class="text-muted">Q15.00</small>
+                            </div>
+                        </li>
+                        <li class="dropdown-item d-flex align-items-center">
+                            <img src="img/servicio1.jpg" alt="Limpieza Residencial" class="me-3" style="width: 50px; height: 50px; object-fit: cover;">
+                            <div>
+                                <h6 class="mb-0">Limpieza Residencial</h6>
+                                <small class="text-muted">Q350 - Cotización personalizada</small>
+                            </div>
+                        </li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li class="text-center"><a href="#" class="btn btn-sm btn-primary mt-2">Estoy listo para cotinuar</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Botón Cotizar separado del grupo de íconos -->
+            <div>
+                <a href="cotizador.html" class="btn btn-outline-primary">Cotizador</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Icono de WhatsApp Flotante -->
+<div class="whatsapp-container">
+    <div class="whatsapp-help-text" id="whatsappHelpText">¿Necesitas ayuda?</div>
+    <a href="https://wa.me/1234567890?text=Hola,%20me%20gustaría%20obtener%20información%20sobre%20sus%20servicios" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+   
+</div>
+
+    <!-- Cotizador de Servicios -->
+    <section class="cotizador container mt-5 pt-5" style="max-width: 800px;">
+        <h2 class="text-center mb-4" id="tituloCotizador">Cotiza tu Servicio de Limpieza</h2>
+        
+        <div style="margin-bottom:50px;"></div>
+
+        <!-- Barra de Progreso Compartida con Indicadores de Pasos -->
+        <div class="progress-container">
+            <div class="progress-bar" id="progressBar"></div>
+            <div class="step-indicator">
+                <div class="step" id="step1"><i class="fas fa-home"></i></div>
+                <div class="step" id="step2">2</div>
+                <div class="step" id="step3">3</div>
+                <div class="step" id="step4"><i class="fas fa-check"></i></div>
+            </div>
+        </div>
+
+        <!-- Selección de Servicio -->
+        <div class="row justify-content-center">
+            <div class="col-md-4 mb-4">
+                <div class="card servicio-card" id="limpiezaResidencial">
+                    <img src="img/servicio1.jpg" alt="Limpieza Residencial">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Limpieza Residencial</h5>
+                        <p class="card-text">Mantenemos tu hogar impecable y libre de preocupaciones.</p>
+                        <button class="btn btn-primary seleccionarServicio" data-servicio="residencial">Seleccionar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card servicio-card" id="limpiezaComercial">
+                    <img src="img/servicio2.jpg" alt="Limpieza Comercial">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Limpieza Comercial</h5>
+                        <p class="card-text">Ofrecemos paquetes flexibles para mantener tus instalaciones.</p>
+                        <button class="btn btn-primary seleccionarServicio" data-servicio="comercial">Seleccionar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card servicio-card" id="limpiezaPostEventos">
+                    <img src="img/servicio3.jpg" alt="Limpieza Post Eventos">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Limpieza Post Eventos</h5>
+                        <p class="card-text">Limpieza después de tus eventos.</p>
+                        <button class="btn btn-primary seleccionarServicio" data-servicio="post_eventos">Seleccionar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <form id="cotizadorForm" style="display: none;">
+            <input type="hidden" id="servicioSeleccionado" name="servicioSeleccionado">
+            <!-- Selección del Tamaño del Lugar -->
+            <div class="mb-3">
+                <label for="tamanoLugar" class="form-label"></i>Tamaño del lugar (m²)</label>
+                <input type="number" class="form-control" id="tamanoLugar" name="tamanoLugar" min="10" placeholder="Ingrese el tamaño del lugar en m²">
+            </div>
+
+            <!-- Frecuencia de Limpieza -->
+            <div class="mb-3" id="frecuenciaContainer">
+                <label for="frecuencia" class="form-label"></i>Frecuencia de limpieza</label>
+                <select class="form-select" id="frecuencia" name="frecuencia">
+                    <option value="unico">Único</option>
+                    <option value="por_uso">Por uso</option>
+                    <option value="diario">Diario</option>
+                    <option value="semanal">Semanal</option>
+                    <option value="quincenal">Quincenal</option>
+                    <option value="mensual">Mensual</option>
+                </select>
+            </div>
+
+            <!-- Tipo de Limpieza -->
+            <div class="mb-3" id="tipoLimpiezaContainer">
+                <label for="tipoLimpieza" class="form-label"></i>Tipo de limpieza</label>
+                <select class="form-select" id="tipoLimpieza" name="tipoLimpieza">
+                    <option value="habitacional">Habitacional</option>
+                    <option value="muebles">Limpieza de muebles específicos</option>
+                    <option value="profunda">Limpieza profunda</option>
+                    <option value="estandar">Limpieza estándar</option>
+                </select>
+            </div>
+
+
+            <!-- Servicios Incluidos -->
+            <h5 class="mt-4">Servicios incluidos</h5>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="limpiezaVidrios" checked disabled>
+                <label class="form-check-label" for="limpiezaVidrios"><i class="fas fa-window-maximize"></i> Limpieza de vidrios</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="sacudidoParedes" checked disabled>
+                <label class="form-check-label" for="sacudidoParedes"><i class="fas fa-duster"></i> Sacudido de paredes y muebles</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="barrerTrapear" checked disabled>
+                <label class="form-check-label" for="barrerTrapear"><i class="fas fa-broom"></i> Barrer y trapear pisos</label>
+            </div>
+            <!-- Opciones de limpieza adicionales -->
+            <h5 class="mt-4">Opciones adicionales (con costo extra)</h5>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="corteCesped" id="corteCesped">
+                <label class="form-check-label" for="corteCesped"> Corte de césped</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="podadoPlantas" id="podadoPlantas">
+                <label class="form-check-label" for="podadoPlantas"> Podado de plantas</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="mantenimientoAire" id="mantenimientoAire">
+                <label class="form-check-label" for="mantenimientoAire"> Mantenimiento de aire acondicionado</label>
+            </div>
+
+            <!-- Precio Estimado -->
+            <div class="my-4">
+                <h4>Precio Estimado: <span id="precioEstimado">Q0.00</span></h4>
+            </div>
+
+            <!-- Botón Reservar -->
+            <button type="button" class="btn btn-primary" id="reservarBtn">Reserva ahora</button>
+        </form>
+    </section>
+
+    <!-- Formulario para Reservar -->
+    <section id="reservaForm" class="container mt-5" style="display: none; max-width: 800px;">
+        <h2 class="text-center mb-4">Completa tu Reserva</h2>
+        <form>
+            <div class="mb-3">
+                <label for="servicioElegido" class="form-label"><i class="fas fa-broom reserva-form-icon"></i>Servicio seleccionado</label>
+                <input type="text" class="form-control" id="servicioElegido" name="servicioElegido" readonly>
+            </div>
+            <div class="mb-3">
+                <label for="nombreCompleto" class="form-label"><i class="fas fa-user reserva-form-icon"></i>Nombre completo</label>
+                <input type="text" class="form-control" id="nombreCompleto" required>
+            </div>
+            <div class="mb-3">
+                <label for="telefono" class="form-label"><i class="fas fa-phone reserva-form-icon"></i>Número de teléfono</label>
+                <input type="tel" class="form-control" id="telefono" required>
+            </div>
+            <div class="mb-3">
+                <label for="correoElectronico" class="form-label"><i class="fas fa-envelope reserva-form-icon"></i>Correo electrónico</label>
+                <input type="email" class="form-control" id="correoElectronico" required>
+            </div>
+            <div class="mb-3">
+                <label for="contrasena" class="form-label"><i class="fas fa-lock reserva-form-icon"></i>Contraseña</label>
+                <input type="password" class="form-control" id="contrasena" required>
+            </div>
+            <div class="mb-3">
+                <label for="direccion" class="form-label"><i class="fas fa-map-marker-alt reserva-form-icon"></i>Dirección del servicio</label>
+                <input type="text" class="form-control" id="direccion" required>
+            </div>
+            <div class="mb-3">
+                <label for="fechaHora" class="form-label"><i class="fas fa-calendar-alt reserva-form-icon"></i>Fecha y hora del servicio</label>
+                <input type="datetime-local" class="form-control" id="fechaHora" required>
+            </div>
+            <input type="hidden" id="precioFinalReserva" name="precioFinalReserva">
+            <button type="submit" class="btn btn-success" id="confirmarReservaBtn">Confirmar Reserva</button>
+        </form>
+    </section>
+
+    <!-- Mensaje de Confirmación -->
+    <section id="mensajeConfirmacion" class="container mt-5 text-center" style="display: none; max-width: 800px;">
+        <div class="alert alert-success" role="alert">
+            <i class="fas fa-check-circle fa-3x mb-3"></i>
+            <h4>¡Gracias por tu reserva!</h4>
+        </div>
+        <p>Hemos confirmado tu contratación del servicio de <strong id="servicioConfirmado"></strong>.</p>
+        <p><strong>Detalles de la Reserva:</strong></p>
+        <ul class="list-unstyled">
+            <li><i class="fas fa-broom"></i> <strong>Servicio:</strong> <span id="detalleServicio"></span></li>
+            <li><i class="fas fa-calendar-alt"></i> <strong>Fecha y Hora:</strong> <span id="detalleFechaHora"></span></li>
+            <li><i class="fas fa-map-marker-alt"></i> <strong>Dirección:</strong> <span id="detalleDireccion"></span></li>
+            <li><i class="fas fa-phone"></i> <strong>Teléfono:</strong> <span id="detalleTelefono"></span></li>
+            <li><i class="fas fa-envelope"></i> <strong>Correo Electrónico:</strong> <span id="detalleCorreo"></span></li>
+            <li><i class="fas fa-money-bill-wave"></i> <strong>Precio Total:</strong> <span id="detallePrecio"></span></li>
+        </ul>
+        <a href="index.html" class="btn btn-primary"><i class="fas fa-user"></i> Ir a Mi Cuenta</a>
+    </section>
+
+
+    
+        <!-- JS -->
+        <script src="vendor/bootstrap.bundle.min.js"></script>
+        <script src="vendor/swiper-bundle.min.js"></script>
+        <script src="vendor/jquery.min.js"></script>
+        <script src="js/scripts.js"></script>
+        <!-- TwentyTwenty JS para comparación de imágenes -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mhayes-twentytwenty/1.0.0/js/jquery.event.move.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mhayes-twentytwenty/1.0.0/js/jquery.twentytwenty.min.js"></script>
+
+       <script>
+$(document).ready(function() {
+    // Total de pasos (modificar según los pasos totales)
+    const totalSteps = 4;
+
+    // Función para actualizar la barra de progreso
+    function updateProgress(currentStep) {
+        // Calcular el porcentaje basado en el paso actual
+        const percentage = ((currentStep - 1) / (totalSteps - 1)) * 100;
+        $('#progressBar').css('width', percentage + '%');
+
+        // Actualizar los pasos visualmente
+        $('.step').each(function(index) {
+            if (index < currentStep) {
+                $(this).addClass('active');
+            } else {
+                $(this).removeClass('active');
+            }
+        });
+    }
+
+    // Inicializar en el primer paso
+    updateProgress(1);
+
+    // Manejar la selección de un servicio
+    $('.seleccionarServicio').click(function() {
+        let servicioTexto = $(this).closest('.card').find('.card-title').text();
+        $('#tituloCotizador').text('Cotiza tu Servicio de Limpieza - ' + servicioTexto);
+        let servicioSeleccionado = $(this).data('servicio');
+        $('#servicioSeleccionado').val(servicioSeleccionado);
+        $('#servicioElegido').val(servicioTexto);
+
+        // Mostrar u ocultar ciertos campos según el servicio seleccionado
+        if (servicioSeleccionado === 'post_eventos') {
+            $('#frecuenciaContainer').hide();
+            $('#tipoLimpiezaContainer').hide();
+        } else {
+            $('#frecuenciaContainer').show();
+            $('#tipoLimpiezaContainer').show();
+        }
+
+        // Mostrar el formulario de cotización y ocultar las tarjetas de servicios
+        $('#cotizadorForm').show();
+        $('.servicio-card').hide();
+
+        // Actualizar la barra de progreso y los pasos al paso 2
+        updateProgress(2);
+    });
+
+    // Manejar los cambios en el formulario de cotización para calcular el precio estimado
+    $('#cotizadorForm').on('change', function() {
+        let precioBase = 5; // Precio base por m²
+        let tamano = parseInt($('#tamanoLugar').val()) || 0;
+        let adicionales = 0;
+
+        // Calcular el precio según las opciones seleccionadas
+        if ($('#corteCesped').is(':checked')) adicionales += 25;
+        if ($('#podadoPlantas').is(':checked')) adicionales += 20;
+        if ($('#mantenimientoAire').is(':checked')) adicionales += 30;
+
+        // Actualizar el precio estimado
+        let precioFinal = (tamano * precioBase) + adicionales;
+        $('#precioEstimado').text('Q' + precioFinal.toFixed(2));
+        $('#precioFinalReserva').val(precioFinal.toFixed(2));
+    });
+
+    // Manejar la acción de "Reservar ahora" para validar y pasar al paso 3
+    $('#reservarBtn').click(function() {
+        let isValid = true;
+        let firstInvalidField = null;
+
+        // Limpiar cualquier error previo
+        $('.form-control').removeClass('is-invalid');
+        $('.invalid-feedback').remove();
+
+        let tamanoLugar = $('#tamanoLugar').val();
+        let frecuencia = $('#frecuencia').val();
+        let tipoLimpieza = $('#tipoLimpieza').val();
+
+        // Validar el tamaño del lugar
+        if (!tamanoLugar) {
+            isValid = false;
+            $('#tamanoLugar').addClass('is-invalid');
+            $('#tamanoLugar').after('<div class="invalid-feedback">Por favor, ingresa el tamaño del lugar.</div>');
+            if (!firstInvalidField) firstInvalidField = $('#tamanoLugar');
+        }
+
+        // Validar la frecuencia si está visible
+        if ($('#frecuenciaContainer').is(':visible') && !frecuencia) {
+            isValid = false;
+            $('#frecuencia').addClass('is-invalid');
+            $('#frecuencia').after('<div class="invalid-feedback">Por favor, selecciona la frecuencia de limpieza.</div>');
+            if (!firstInvalidField) firstInvalidField = $('#frecuencia');
+        }
+
+        // Validar el tipo de limpieza si está visible
+        if ($('#tipoLimpiezaContainer').is(':visible') && !tipoLimpieza) {
+            isValid = false;
+            $('#tipoLimpieza').addClass('is-invalid');
+            $('#tipoLimpieza').after('<div class="invalid-feedback">Por favor, selecciona el tipo de limpieza.</div>');
+            if (!firstInvalidField) firstInvalidField = $('#tipoLimpieza');
+        }
+
+        // Si hay algún campo inválido, desplazar la vista al primer campo inválido
+        if (firstInvalidField) {
+            firstInvalidField[0].scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        // Si todo es válido, proceder al siguiente paso
+        if (isValid) {
+            $('#cotizadorForm').hide();
+            $('#reservaForm').show();
+
+            // Actualizar la barra de progreso y los pasos al paso 3
+            updateProgress(3);
+        }
+    });
+
+    // Manejar la confirmación de reserva para validar y pasar al paso 4
+    $('#confirmarReservaBtn').click(function(event) {
+        event.preventDefault();
+        let isValid = true;
+        let firstInvalidField = null;
+
+        // Limpiar cualquier error previo
+        $('.form-control').removeClass('is-invalid');
+        $('.invalid-feedback').remove();
+
+        let nombreCompleto = $('#nombreCompleto').val();
+        let telefono = $('#telefono').val();
+        let correoElectronico = $('#correoElectronico').val();
+        let direccion = $('#direccion').val();
+        let fechaHora = $('#fechaHora').val();
+
+        // Validar el nombre completo
+        if (!nombreCompleto) {
+            isValid = false;
+            $('#nombreCompleto').addClass('is-invalid');
+            $('#nombreCompleto').after('<div class="invalid-feedback">Por favor, ingresa tu nombre completo.</div>');
+            if (!firstInvalidField) firstInvalidField = $('#nombreCompleto');
+        }
+
+        // Validar el teléfono
+        if (!telefono) {
+            isValid = false;
+            $('#telefono').addClass('is-invalid');
+            $('#telefono').after('<div class="invalid-feedback">Por favor, ingresa tu número de teléfono.</div>');
+            if (!firstInvalidField) firstInvalidField = $('#telefono');
+        }
+
+        // Validar el correo electrónico
+        if (!correoElectronico) {
+            isValid = false;
+            $('#correoElectronico').addClass('is-invalid');
+            $('#correoElectronico').after('<div class="invalid-feedback">Por favor, ingresa tu correo electrónico.</div>');
+            if (!firstInvalidField) firstInvalidField = $('#correoElectronico');
+        }
+
+        // Validar la dirección
+        if (!direccion) {
+            isValid = false;
+            $('#direccion').addClass('is-invalid');
+            $('#direccion').after('<div class="invalid-feedback">Por favor, ingresa la dirección del servicio.</div>');
+            if (!firstInvalidField) firstInvalidField = $('#direccion');
+        }
+
+        // Validar la fecha y hora del servicio
+        if (!fechaHora) {
+            isValid = false;
+            $('#fechaHora').addClass('is-invalid');
+            $('#fechaHora').after('<div class="invalid-feedback">Por favor, selecciona la fecha y hora del servicio.</div>');
+            if (!firstInvalidField) firstInvalidField = $('#fechaHora');
+        }
+
+        // Si hay algún campo inválido, desplazar la vista al primer campo inválido
+        if (firstInvalidField) {
+            firstInvalidField[0].scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        // Si todo es válido, mostrar la confirmación
+        if (isValid) {
+            let servicioElegido = $('#servicioElegido').val();
+            let precioFinal = $('#precioFinalReserva').val();
+
+            // Mostrar la pantalla de confirmación con los detalles de la reserva
+            $('#servicioConfirmado').text(servicioElegido);
+            $('#detalleServicio').text(servicioElegido);
+            $('#detalleFechaHora').text(fechaHora);
+            $('#detalleDireccion').text(direccion);
+            $('#detalleTelefono').text(telefono);
+            $('#detalleCorreo').text(correoElectronico);
+            $('#detallePrecio').text('Q' + precioFinal);
+            
+            $('#reservaForm').hide();
+            $('#mensajeConfirmacion').show();
+
+            // Actualizar la barra de progreso y los pasos al paso 4
+            updateProgress(4);
+        }
+    });
+});
+
+
+       </script> 
+<!-- Footer -->
+<footer class="bg-light text-dark text-center py-4 mt-5">
+    <div class="container">
+        <p>Síguenos en:</p>
+        <a href="#" class="social-icon"><i class="fab fa-facebook fa-lg"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-instagram fa-lg"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-twitter fa-lg"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-linkedin fa-lg"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-youtube fa-lg"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-whatsapp fa-lg"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-pinterest fa-lg"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-snapchat fa-lg"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-tiktok fa-lg"></i></a>
+        
+        <p class="mt-3">&copy; 2024 Clean Home - Todos los derechos reservados.</p>
+        
+        <p class="mt-1"><a href="#">Términos y Condiciones</a> | <a href="#">Política de Privacidad</a></p>
+ 
+    </div>
+
+</footer>
+
+
+</body>
+</html>
