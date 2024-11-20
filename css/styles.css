@@ -72,7 +72,6 @@ body {
     border-color: #00b4d8;
     outline: none;
 }
-
 @media (max-width: 768px) {
     .navbar {
         display: flex;
@@ -108,8 +107,12 @@ body {
         width: 100%; /* Ancho completo */
         order: 0; /* Íconos después de la barra */
     }
-}
 
+    /* Ocultar el texto "Clean Home" en la marca de navegación en pantallas pequeñas */
+    .navbar-brand span {
+        display: none; /* Oculta el texto */
+    }
+}
 
 
 /* Íconos de navegación */
@@ -279,11 +282,11 @@ h2 {
     justify-content: center; /* Centra el contenido horizontalmente */
     align-items: center; /* Centra el contenido verticalmente */
     position: relative; /* Necesario para el handle */
-    width: 50%; /* Ancho deseado */
+    width: 100%; /* Ancho completo disponible */
+    max-width: 600px; /* Máximo ancho deseado */
     height: auto; /* Ajusta altura automáticamente */
     margin: 0 auto; /* Centra horizontalmente dentro del contenedor padre */
 }
-
 
 .twentytwenty-handle {
     background-color: #0077b6; /* Color del handle */

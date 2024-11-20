@@ -22,10 +22,11 @@
 <!-- Barra de Navegación -->
 <nav class="navbar navbar-expand-lg navbar-light fixed-top">
     <div class="container">
-        <a class="navbar-brand" href="index.html">
+        <a class="navbar-brand" href="index.html"> 
             <img src="logo.svg" alt="Clean Home Logo" height="40">
-            Clean Home
+            <span>Clean Home</span>
         </a>
+        
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -146,7 +147,7 @@
 
 <!-- Icono de WhatsApp Flotante -->
 <div class="whatsapp-container">
-    <div class="whatsapp-help-text" id="whatsappHelpText">¿Necesitas ayuda?</div>
+    <div class="whatsapp-help-text" id="whatsappHelpText"></div>
     <a href="https://wa.me/1234567890?text=Hola,%20me%20gustaría%20obtener%20información%20sobre%20sus%20servicios" class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
@@ -419,6 +420,17 @@
 <!-- TwentyTwenty JS para comparación de imágenes -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mhayes-twentytwenty/1.0.0/js/jquery.event.move.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mhayes-twentytwenty/1.0.0/js/jquery.twentytwenty.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        // Detectar el clic en cualquier enlace del menú
+        $('.navbar-nav .nav-link').on('click', function () {
+            // Colapsar el menú
+            $('.navbar-collapse').collapse('hide');
+        });
+    });
+</script>
+
 
 </body>
 </html>

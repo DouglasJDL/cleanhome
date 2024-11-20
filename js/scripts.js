@@ -83,7 +83,13 @@ $(document).ready(function () {
         }, 200);
     });
 
-
+    // Cancelar la acción predeterminada si no hay valor en el campo al presionar Enter
+    $("#searchForm").on("submit", function (event) {
+        const inputValue = $(".form-control[type='search']").val().trim();
+        if (inputValue === "") {
+            event.preventDefault();
+        }
+    });
 
     // Inicializar el carrusel (Swiper) - mover esta parte al final para evitar conflictos
     const swiper = new Swiper('.swiper-container', {
@@ -160,6 +166,3 @@ $(document).ready(function () {
             rangeValue.textContent = `Hasta Q${value}`;
         });
     });
-
-
- 
