@@ -283,7 +283,7 @@ h2 {
     align-items: center; /* Centra el contenido verticalmente */
     position: relative; /* Necesario para el handle */
     width: 100%; /* Ancho completo disponible */
-    max-width: 600px; /* Máximo ancho deseado */
+    max-width: 800px; /* Máximo ancho deseado */
     height: auto; /* Ajusta altura automáticamente */
     margin: 0 auto; /* Centra horizontalmente dentro del contenedor padre */
 }
